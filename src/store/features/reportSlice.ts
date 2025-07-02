@@ -1,18 +1,29 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../api/axios';
+import api from '../../helper/axios';
+import { IEnrollmentReport, ITopStudentReport } from '../types';
 
-export const fetchReports = createAsyncThunk('reports/fetchReports', async () => {
+type TReportData = IEnrollmentReport[] | ITopStudentReport[];
+
+export const fetchReports = createAsyncThunk<TReportData>('reports/fetchReports', async () => {
   const response = await api.get('/reports');
   return response.data;
 });
 
+interface ReportState {
+  data: TReportData;
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
+
+const initialState: ReportState = {
+  data: [],
+  status: 'idle',
+  error: null,
+};
+
 const reportSlice = createSlice({
   name: 'reports',
-  initialState: {
-    data: [],
-    status: 'idle',
-    error: null as string | null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder

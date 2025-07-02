@@ -1,18 +1,27 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../api/axios';
+import api from '../../helper/axios';
+import { IFaculty } from '../types';
 
-export const fetchFaculty = createAsyncThunk('faculty/fetchFaculty', async () => {
+export const fetchFaculty = createAsyncThunk<IFaculty[]>('faculty/fetchFaculty', async () => {
   const response = await api.get('/faculty');
   return response.data;
 });
 
+interface FacultyState {
+  list: IFaculty[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
+
+const initialState: FacultyState = {
+  list: [],
+  status: 'idle',
+  error: null,
+};
+
 const facultySlice = createSlice({
   name: 'faculty',
-  initialState: {
-    list: [],
-    status: 'idle',
-    error: null as string | null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder

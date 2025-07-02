@@ -1,18 +1,27 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../api/axios';
+import api from '../../helper/axios';
+import { IDashboardSummary } from '../types';
 
-export const fetchDashboard = createAsyncThunk('dashboard/fetchDashboard', async () => {
+export const fetchDashboard = createAsyncThunk<IDashboardSummary>('dashboard/fetchDashboard', async () => {
   const response = await api.get('/dashboard');
   return response.data;
 });
 
+interface DashboardState {
+  summary: IDashboardSummary | null;
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
+
+const initialState: DashboardState = {
+  summary: null,
+  status: 'idle',
+  error: null,
+};
+
 const dashboardSlice = createSlice({
   name: 'dashboard',
-  initialState: {
-    summary: {},
-    status: 'idle',
-    error: null as string | null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
