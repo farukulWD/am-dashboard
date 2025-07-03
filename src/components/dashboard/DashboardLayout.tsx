@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const sidebarLinks = [
-  { label: "Dashboard", icon: "🏠" },
-  { label: "Students", icon: "🎓" },
-  { label: "Courses", icon: "📚" },
-  { label: "Faculty", icon: "👩‍🏫" },
-  { label: "Reports", icon: "📊" },
-  { label: "Analytics", icon: "📈" },
-  { label: "Attendance", icon: "📝" },
-  { label: "Library", icon: "📖" },
-  { label: "Settings", icon: "⚙️" },
+  { label: "Dashboard", icon: "🏠", href: "/" },
+  { label: "Students", icon: "🎓", href: "/students" },
+  { label: "Courses", icon: "📚", href: "/courses" },
+  { label: "Faculty", icon: "👩‍🏫", href: "/faculty" },
+  { label: "Reports", icon: "📊", href: "/reports" },
+  { label: "Analytics", icon: "📈", href: "/analytics" },
+  { label: "Attendance", icon: "📝", href: "/attendance" },
+  { label: "Library", icon: "📖", href: "/library" },
+  { label: "Settings", icon: "⚙️", href: "/settings" },
 ];
 
 export default function DashboardLayout({
@@ -164,7 +164,7 @@ function SidebarContent() {
         {sidebarLinks.map((link) => (
           <Link
             key={link.label}
-            href={link.label.toLocaleLowerCase()}
+            href={link.href}
             className="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors"
             style={{
               color: "var(--color-sidebar-foreground)",

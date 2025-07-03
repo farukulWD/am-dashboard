@@ -4,17 +4,95 @@
       "id": "s1",
       "name": "Alice Johnson",
       "email": "alice@example.com",
-      "year": 2,
-      "gpa": 3.8,
-      "enrolledCourses": ["c1", "c2"]
+      "phone": "+1 (555) 123-4567",
+      "address": "123 Main St, City, State 12345",
+      "dateOfBirth": "1999-05-15",
+      "course": "Computer Science",
+      "year": "Senior",
+      "gpa": 3.95,
+      "avatar": "/placeholder.svg?height=128&width=128",
+      "enrolledCourses": [
+        {
+          "id": "c1",
+          "name": "Advanced Algorithms",
+          "code": "CS401",
+          "credits": 3,
+          "grade": "A",
+          "progress": 85
+        },
+        {
+          "id": "c2",
+          "name": "Database Systems",
+          "code": "CS350",
+          "credits": 3,
+          "grade": "A-",
+          "progress": 92
+        },
+        {
+          "id": "c3",
+          "name": "Software Engineering",
+          "code": "CS380",
+          "credits": 4,
+          "grade": "A",
+          "progress": 78
+        },
+        {
+          "id": "c4",
+          "name": "Machine Learning",
+          "code": "CS420",
+          "credits": 3,
+          "grade": "B+",
+          "progress": 65
+        },
+        {
+          "id": "c5",
+          "name": "Computer Networks",
+          "code": "CS360",
+          "credits": 3,
+          "grade": "A-",
+          "progress": 88
+        }
+      ],
+      "gradeHistory": [
+        { "semester": "Fall 2023", "gpa": 3.8 },
+        { "semester": "Spring 2024", "gpa": 3.9 },
+        { "semester": "Fall 2024", "gpa": 4.0 }
+      ]
     },
     {
       "id": "s2",
       "name": "Bob Smith",
       "email": "bob@example.com",
-      "year": 3,
+      "phone": "+1 (555) 987-6543",
+      "address": "456 Oak Ave, City, State 12345",
+      "dateOfBirth": "2000-08-22",
+      "course": "Computer Science",
+      "year": "Junior",
       "gpa": 3.5,
-      "enrolledCourses": ["c2"]
+      "avatar": "/placeholder.svg?height=128&width=128",
+      "enrolledCourses": [
+        {
+          "id": "c2",
+          "name": "Data Structures",
+          "code": "CS201",
+          "credits": 3,
+          "grade": "B+",
+          "progress": 75
+        },
+        {
+          "id": "c6",
+          "name": "Web Development",
+          "code": "CS250",
+          "credits": 3,
+          "grade": "A-",
+          "progress": 90
+        }
+      ],
+      "gradeHistory": [
+        { "semester": "Fall 2023", "gpa": 3.2 },
+        { "semester": "Spring 2024", "gpa": 3.5 },
+        { "semester": "Fall 2024", "gpa": 3.5 }
+      ]
     }
   ],
   "courses": [
