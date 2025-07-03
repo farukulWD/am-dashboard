@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import SummaryCards from "./SummaryCards";
 import CourseEnrollmentChart from "./CourseEnrollmentChart";
 import TopStudentsTable from "./TopStudentsTable";
+import { useIsDarkMode } from "@/lib/utils";
 
 import { IDashboardSummary } from "@/store/types";
 interface Props {
   dashboard: IDashboardSummary;
 }
 export default function DashboardView({ dashboard }: Props) {
+  const isDark = useIsDarkMode();
   const summary = useMemo(() => {
     if (!dashboard) return [];
     return [
@@ -23,6 +25,7 @@ export default function DashboardView({ dashboard }: Props) {
   const courseEnrollmentData = useMemo(() => {
     if (!dashboard || !dashboard.popularCourses)
       return { series: [], options: {} };
+    const mode: "dark" | "light" = isDark ? "dark" : "light";
     return {
       series: [
         {
@@ -54,9 +57,11 @@ export default function DashboardView({ dashboard }: Props) {
         },
         colors: ["#2563eb"],
         grid: { borderColor: "#e5e7eb" },
+        theme: { mode },
+        tooltip: { theme: mode },
       },
     };
-  }, [dashboard]);
+  }, [dashboard, isDark]);
 
   const topStudents = useMemo(() => {
     if (!dashboard || !dashboard.topStudents) return [];
