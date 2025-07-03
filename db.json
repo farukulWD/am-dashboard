@@ -73,7 +73,16 @@
         "facultyId": "f1",
         "enrollmentCount": 30,
         "year": 1
+      },
+      {
+        "id": "c2",
+        "name": "Data Structures",
+        "code": "CS102",
+        "facultyId": "f2",
+        "enrollmentCount": 35,
+        "year": 1
       }
+
     ]
   },
   "reports": [
