@@ -1,0 +1,99 @@
+{
+  "students": [
+    {
+      "id": "s1",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "year": 2,
+      "gpa": 3.8,
+      "enrolledCourses": ["c1", "c2"]
+    },
+    {
+      "id": "s2",
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "year": 3,
+      "gpa": 3.5,
+      "enrolledCourses": ["c2"]
+    }
+  ],
+  "courses": [
+    {
+      "id": "c1",
+      "name": "Introduction to Programming",
+      "code": "CS101",
+      "facultyId": "f1",
+      "enrollmentCount": 30,
+      "year": 1
+    },
+    {
+      "id": "c2",
+      "name": "Data Structures",
+      "code": "CS201",
+      "facultyId": "f2",
+      "enrollmentCount": 25,
+      "year": 2
+    }
+  ],
+  "faculty": [
+    {
+      "id": "f1",
+      "name": "Dr. Emily Carter",
+      "email": "emily.carter@example.com",
+      "department": "Computer Science",
+      "courses": ["c1"]
+    },
+    {
+      "id": "f2",
+      "name": "Dr. John Doe",
+      "email": "john.doe@example.com",
+      "department": "Computer Science",
+      "courses": ["c2"]
+    }
+  ],
+  "dashboard": {
+    "totalStudents": 2,
+    "totalCourses": 2,
+    "totalFaculty": 2,
+    "topStudents": [
+      {
+        "id": "s1",
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "year": 2,
+        "gpa": 3.8,
+        "enrolledCourses": ["c1", "c2"]
+      }
+    ],
+    "popularCourses": [
+      {
+        "id": "c1",
+        "name": "Introduction to Programming",
+        "code": "CS101",
+        "facultyId": "f1",
+        "enrollmentCount": 30,
+        "year": 1
+      }
+    ]
+  },
+  "reports": [
+    {
+      "courseId": "c1",
+      "courseName": "Introduction to Programming",
+      "enrollmentsOverTime": [
+        { "date": "2024-01-01", "count": 10 },
+        { "date": "2024-02-01", "count": 20 },
+        { "date": "2024-03-01", "count": 30 }
+      ]
+    },
+    {
+      "courseId": "c2",
+      "courseName": "Data Structures",
+      "enrollmentsOverTime": [
+        { "date": "2024-01-01", "count": 5 },
+        { "date": "2024-02-01", "count": 15 },
+        { "date": "2024-03-01", "count": 25 }
+      ]
+    }
+  ]
+} 

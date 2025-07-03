@@ -10,8 +10,8 @@ interface CourseEnrollmentChartProps {
 
 export default function CourseEnrollmentChart({ series, options }: CourseEnrollmentChartProps) {
   return (
-    <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-      <h2 className="text-xl font-semibold text-gray-700 mb-4">Course Enrollments</h2>
+    <div className="bg-background rounded-xl dark:border dark:border-border shadow p-6 flex flex-col">
+      <h2 className="text-xl font-semibold text-muted-foreground mb-4">Course Enrollments</h2>
       <div className="flex-1">
         <ReactApexChart
           options={options}

@@ -19,10 +19,10 @@ export default function SummaryCards({ summary }: SummaryCardsProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 + idx * 0.1, duration: 0.6 }}
-          className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform border border-blue-100"
+          className="bg-background rounded-xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform border border-border"
         >
-          <span className="text-lg text-gray-500 mb-2">{item.label}</span>
-          <span className="text-3xl font-extrabold text-blue-600">{item.value}</span>
+          <span className="text-lg text-muted-foreground mb-2">{item.label}</span>
+          <span className="text-3xl font-extrabold text-primary">{item.value}</span>
         </motion.div>
       ))}
     </section>

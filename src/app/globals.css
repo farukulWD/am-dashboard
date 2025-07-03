@@ -1,34 +1,94 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
+  --color-sidebar: var(--color-sidebar);
+  --color-sidebar-foreground: var(--color-sidebar-foreground);
+  --color-navbar: var(--color-navbar);
+  --color-navbar-foreground: var(--color-navbar-foreground);
+  --color-active: var(--color-active);
+  --color-active-foreground: var(--color-active-foreground);
+  --color-hover: var(--color-hover);
+  --color-hover-foreground: var(--color-hover-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Semantic color palette for light theme */
+  --color-primary: #2563eb;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f3f4f6;
+  --color-secondary-foreground: #171717;
+  --color-accent: #f59e42;
+  --color-accent-foreground: #ffffff;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #6b7280;
+  --color-border: #e5e7eb;
+  --color-card: #ffffff;
+  --color-card-foreground: #171717;
+  --color-sidebar: #f8fafc;
+  --color-sidebar-foreground: #171717;
+  --color-navbar: #f8fafc;
+  --color-navbar-foreground: #171717;
+  --color-active: #2563eb;
+  --color-active-foreground: #ffffff;
+  --color-hover: #e0e7ff;
+  --color-hover-foreground: #171717;
 }
+
+
+
+
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  /* Semantic color palette for dark theme */
+  --color-primary: #60a5fa;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #1f2937;
+  --color-secondary-foreground: #ededed;
+  --color-accent: #fbbf24;
+  --color-accent-foreground: #0a0a0a;
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+  --color-border: #334155;
+  --color-card: #171717;
+  --color-card-foreground: #ededed;
+  --color-sidebar: #18181b;
+  --color-sidebar-foreground: #ededed;
+  --color-navbar: #18181b;
+  --color-navbar-foreground: #ededed;
+  --color-active: #60a5fa;
+  --color-active-foreground: #0a0a0a;
+  --color-hover: #1e293b;
+  --color-hover-foreground: #ededed;
+}
+
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-@utility menu-item-active {
-  @apply bg-sky-200 text-sky-500;
-}
-
-@utility menu-item-inactive {
-  @apply text-gray-700 hover:bg-gray-100 group-hover:text-gray-700 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-gray-300;
 }

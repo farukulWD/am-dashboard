@@ -1,23 +1,42 @@
 "use client";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import SummaryCards from "../componets/dashboard/SummaryCards";
 import CourseEnrollmentChart from "../componets/dashboard/CourseEnrollmentChart";
 import TopStudentsTable from "../componets/dashboard/TopStudentsTable";
 
-export default function Home() {
-  const summary = [
-    { label: "Total Students", value: 1200 },
-    { label: "Total Courses", value: 35 },
-    { label: "Total Faculty", value: 18 },
-  ];
+import { fetchDashboard } from "../store/features/dashboardSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
-  const courseEnrollmentData = useMemo(
-    () => ({
+export default function Home() {
+  const dispatch = useAppDispatch();
+  const { summary: dashboard, status } = useAppSelector(
+    (state) => state.dashboard
+  );
+
+  
+
+  useEffect(() => {
+    dispatch(fetchDashboard());
+  }, [dispatch]);
+
+  const summary = useMemo(() => {
+    if (!dashboard) return [];
+    return [
+      { label: "Total Students", value: dashboard.totalStudents },
+      { label: "Total Courses", value: dashboard.totalCourses },
+      { label: "Total Faculty", value: dashboard.totalFaculty },
+    ];
+  }, [dashboard]);
+
+  const courseEnrollmentData = useMemo(() => {
+    if (!dashboard || !dashboard.popularCourses)
+      return { series: [], options: {} };
+    return {
       series: [
         {
           name: "Enrollments",
-          data: [120, 98, 85, 70, 65, 60, 55],
+          data: dashboard.popularCourses.map((c) => c.enrollmentCount),
         },
       ],
       options: {
@@ -35,15 +54,7 @@ export default function Home() {
         },
         dataLabels: { enabled: false },
         xaxis: {
-          categories: [
-            "Math",
-            "Physics",
-            "Chemistry",
-            "Biology",
-            "History",
-            "English",
-            "Art",
-          ],
+          categories: dashboard.popularCourses.map((c) => c.name),
           labels: { style: { fontSize: "14px" } },
         },
         yaxis: {
@@ -53,26 +64,39 @@ export default function Home() {
         colors: ["#2563eb"],
         grid: { borderColor: "#e5e7eb" },
       },
-    }),
-    []
-  );
+    };
+  }, [dashboard]);
 
-  // Mock data for top students
-  const topStudents = [
-    { name: "Alice Johnson", gpa: 4.0 },
-    { name: "Bob Smith", gpa: 3.95 },
-    { name: "Carol Lee", gpa: 3.92 },
-    { name: "David Kim", gpa: 3.89 },
-    { name: "Eva Brown", gpa: 3.85 },
-  ];
+  const topStudents = useMemo(() => {
+    if (!dashboard || !dashboard.topStudents) return [];
+    return dashboard.topStudents.map((s) => ({
+      name: s.name,
+      gpa: s.gpa,
+    }));
+  }, [dashboard]);
+
+  if (status === "loading") {
+    return (
+      <div className="text-center mt-20" style={{ color: "var(--foreground)" }}>
+        Loading...
+      </div>
+    );
+  }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-gray-950 dark:to-gray-900 p-6">
+    <main
+      className="min-h-screen p-6"
+      style={{
+        background: "var(--background)",
+        color: "var(--foreground)",
+      }}
+    >
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center"
+        className="text-3xl md:text-4xl font-bold mb-8 text-center"
+        style={{ color: "var(--foreground)" }}
       >
         Academic Management Dashboard
       </motion.h1>
@@ -83,7 +107,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.7 }}
-        className=" mx-auto grid md:grid-cols-2 gap-8"
+        className="mx-auto grid md:grid-cols-2 gap-8"
       >
         <CourseEnrollmentChart
           series={courseEnrollmentData.series}
