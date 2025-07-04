@@ -54,9 +54,18 @@
         }
       ],
       "gradeHistory": [
-        { "semester": "Fall 2023", "gpa": 3.8 },
-        { "semester": "Spring 2024", "gpa": 3.9 },
-        { "semester": "Fall 2024", "gpa": 4.0 }
+        {
+          "semester": "Fall 2023",
+          "gpa": 3.8
+        },
+        {
+          "semester": "Spring 2024",
+          "gpa": 3.9
+        },
+        {
+          "semester": "Fall 2024",
+          "gpa": 4
+        }
       ]
     },
     {
@@ -89,9 +98,18 @@
         }
       ],
       "gradeHistory": [
-        { "semester": "Fall 2023", "gpa": 3.2 },
-        { "semester": "Spring 2024", "gpa": 3.5 },
-        { "semester": "Fall 2024", "gpa": 3.5 }
+        {
+          "semester": "Fall 2023",
+          "gpa": 3.2
+        },
+        {
+          "semester": "Spring 2024",
+          "gpa": 3.5
+        },
+        {
+          "semester": "Fall 2024",
+          "gpa": 3.5
+        }
       ]
     }
   ],
@@ -111,6 +129,30 @@
       "facultyId": "f2",
       "enrollmentCount": 25,
       "year": 2
+    },
+    {
+      "id": "b426",
+      "name": "Pychisc",
+      "code": "hjkhjk",
+      "facultyId": "f1",
+      "year": 3,
+      "capacity": 40
+    },
+    {
+      "id": "4878",
+      "name": "Math consultation",
+      "code": "2654654",
+      "facultyId": "f1",
+      "year": 1,
+      "capacity": 40
+    },
+    {
+      "id": "6185",
+      "name": "Math consultation",
+      "code": "123",
+      "facultyId": "f1",
+      "year": 1,
+      "capacity": 40
     }
   ],
   "faculty": [
@@ -119,14 +161,18 @@
       "name": "Dr. Emily Carter",
       "email": "emily.carter@example.com",
       "department": "Computer Science",
-      "courses": ["c1"]
+      "courses": [
+        "c1"
+      ]
     },
     {
       "id": "f2",
       "name": "Dr. John Doe",
       "email": "john.doe@example.com",
       "department": "Computer Science",
-      "courses": ["c2"]
+      "courses": [
+        "c2"
+      ]
     }
   ],
   "dashboard": {
@@ -140,7 +186,10 @@
         "email": "alice@example.com",
         "year": 2,
         "gpa": 3.8,
-        "enrolledCourses": ["c1", "c2"]
+        "enrolledCourses": [
+          "c1",
+          "c2"
+        ]
       }
     ],
     "popularCourses": [
@@ -160,7 +209,6 @@
         "enrollmentCount": 35,
         "year": 1
       }
-
     ]
   },
   "reports": [
@@ -168,19 +216,39 @@
       "courseId": "c1",
       "courseName": "Introduction to Programming",
       "enrollmentsOverTime": [
-        { "date": "2024-01-01", "count": 10 },
-        { "date": "2024-02-01", "count": 20 },
-        { "date": "2024-03-01", "count": 30 }
-      ]
+        {
+          "date": "2024-01-01",
+          "count": 10
+        },
+        {
+          "date": "2024-02-01",
+          "count": 20
+        },
+        {
+          "date": "2024-03-01",
+          "count": 30
+        }
+      ],
+      "id": "6c2d"
     },
     {
       "courseId": "c2",
       "courseName": "Data Structures",
       "enrollmentsOverTime": [
-        { "date": "2024-01-01", "count": 5 },
-        { "date": "2024-02-01", "count": 15 },
-        { "date": "2024-03-01", "count": 25 }
-      ]
+        {
+          "date": "2024-01-01",
+          "count": 5
+        },
+        {
+          "date": "2024-02-01",
+          "count": 15
+        },
+        {
+          "date": "2024-03-01",
+          "count": 25
+        }
+      ],
+      "id": "fd74"
     }
   ]
-} 
+}
