@@ -10,10 +10,7 @@ const sidebarLinks = [
   { label: "Courses", icon: "📚", href: "/courses" },
   { label: "Faculty", icon: "👩‍🏫", href: "/faculty" },
   { label: "Reports", icon: "📊", href: "/reports" },
-  { label: "Analytics", icon: "📈", href: "/analytics" },
-  { label: "Attendance", icon: "📝", href: "/attendance" },
-  { label: "Library", icon: "📖", href: "/library" },
-  { label: "Settings", icon: "⚙️", href: "/settings" },
+
 ];
 
 export default function DashboardLayout({

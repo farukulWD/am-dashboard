@@ -4,20 +4,15 @@
       "id": "s1",
       "name": "Alice Johnson",
       "email": "alice@example.com",
-      "phone": "+1 (555) 123-4567",
-      "address": "123 Main St, City, State 12345",
-      "dateOfBirth": "1999-05-15",
-      "course": "Computer Science",
-      "year": "Senior",
+      "year": 4,
       "gpa": 3.95,
-      "avatar": "/placeholder.svg?height=128&width=128",
       "enrolledCourses": [
         {
           "id": "c1",
           "name": "Advanced Algorithms",
           "code": "CS401",
           "credits": 3,
-          "grade": "A",
+          "grade": "A-",
           "progress": 85
         },
         {
@@ -25,46 +20,8 @@
           "name": "Database Systems",
           "code": "CS350",
           "credits": 3,
-          "grade": "A-",
-          "progress": 92
-        },
-        {
-          "id": "c3",
-          "name": "Software Engineering",
-          "code": "CS380",
-          "credits": 4,
           "grade": "A",
-          "progress": 78
-        },
-        {
-          "id": "c4",
-          "name": "Machine Learning",
-          "code": "CS420",
-          "credits": 3,
-          "grade": "B+",
-          "progress": 65
-        },
-        {
-          "id": "c5",
-          "name": "Computer Networks",
-          "code": "CS360",
-          "credits": 3,
-          "grade": "A-",
-          "progress": 88
-        }
-      ],
-      "gradeHistory": [
-        {
-          "semester": "Fall 2023",
-          "gpa": 3.8
-        },
-        {
-          "semester": "Spring 2024",
-          "gpa": 3.9
-        },
-        {
-          "semester": "Fall 2024",
-          "gpa": 4
+          "progress": 92
         }
       ]
     },
@@ -72,43 +29,24 @@
       "id": "s2",
       "name": "Bob Smith",
       "email": "bob@example.com",
-      "phone": "+1 (555) 987-6543",
-      "address": "456 Oak Ave, City, State 12345",
-      "dateOfBirth": "2000-08-22",
-      "course": "Computer Science",
-      "year": "Junior",
+      "year": 3,
       "gpa": 3.5,
-      "avatar": "/placeholder.svg?height=128&width=128",
       "enrolledCourses": [
         {
-          "id": "c2",
-          "name": "Data Structures",
-          "code": "CS201",
+          "id": "c1",
+          "name": "Advanced Algorithms",
+          "code": "CS401",
           "credits": 3,
           "grade": "B+",
           "progress": 75
         },
         {
-          "id": "c6",
-          "name": "Web Development",
-          "code": "CS250",
+          "id": "c2",
+          "name": "Database Systems",
+          "code": "CS350",
           "credits": 3,
-          "grade": "A-",
-          "progress": 90
-        }
-      ],
-      "gradeHistory": [
-        {
-          "semester": "Fall 2023",
-          "gpa": 3.2
-        },
-        {
-          "semester": "Spring 2024",
-          "gpa": 3.5
-        },
-        {
-          "semester": "Fall 2024",
-          "gpa": 3.5
+          "grade": "A+",
+          "progress": 0
         }
       ]
     }
@@ -116,43 +54,19 @@
   "courses": [
     {
       "id": "c1",
-      "name": "Introduction to Programming",
-      "code": "CS101",
+      "name": "Advanced Algorithms",
+      "code": "CS401",
       "facultyId": "f1",
-      "enrollmentCount": 30,
-      "year": 1
+      "enrollmentCount": 2,
+      "year": 4
     },
     {
       "id": "c2",
-      "name": "Data Structures",
-      "code": "CS201",
-      "facultyId": "f2",
-      "enrollmentCount": 25,
-      "year": 2
-    },
-    {
-      "id": "b426",
-      "name": "Pychisc",
-      "code": "hjkhjk",
+      "name": "Database Systems",
+      "code": "CS350",
       "facultyId": "f1",
-      "year": 3,
-      "capacity": 40
-    },
-    {
-      "id": "4878",
-      "name": "Math consultation",
-      "code": "2654654",
-      "facultyId": "f1",
-      "year": 1,
-      "capacity": 40
-    },
-    {
-      "id": "6185",
-      "name": "Math consultation",
-      "code": "123",
-      "facultyId": "f1",
-      "year": 1,
-      "capacity": 40
+      "enrollmentCount": 2,
+      "year": 3
     }
   ],
   "faculty": [
@@ -162,30 +76,60 @@
       "email": "emily.carter@example.com",
       "department": "Computer Science",
       "courses": [
-        "c1"
-      ]
-    },
-    {
-      "id": "f2",
-      "name": "Dr. John Doe",
-      "email": "john.doe@example.com",
-      "department": "Computer Science",
-      "courses": [
+        "c1",
         "c2"
       ]
+    }
+  ],
+  "grades": [
+    {
+      "id": "g1",
+      "studentId": "s1",
+      "courseId": "c1",
+      "midterm": 85,
+      "final": 92,
+      "assignments": 88,
+      "overall": "A-"
+    },
+    {
+      "id": "g2",
+      "studentId": "s1",
+      "courseId": "c2",
+      "midterm": 90,
+      "final": 95,
+      "assignments": 93,
+      "overall": "A"
+    },
+    {
+      "id": "g3",
+      "studentId": "s2",
+      "courseId": "c1",
+      "midterm": "100",
+      "final": "100",
+      "assignments": "100",
+      "overall": "B+"
+    },
+    {
+      "id": "1751639975508",
+      "studentId": "s2",
+      "courseId": "c2",
+      "midterm": "80",
+      "final": "80",
+      "assignments": "80",
+      "overall": "A+"
     }
   ],
   "dashboard": {
     "totalStudents": 2,
     "totalCourses": 2,
-    "totalFaculty": 2,
+    "totalFaculty": 1,
     "topStudents": [
       {
         "id": "s1",
         "name": "Alice Johnson",
         "email": "alice@example.com",
-        "year": 2,
-        "gpa": 3.8,
+        "year": 4,
+        "gpa": 3.95,
         "enrolledCourses": [
           "c1",
           "c2"
@@ -195,60 +139,54 @@
     "popularCourses": [
       {
         "id": "c1",
-        "name": "Introduction to Programming",
-        "code": "CS101",
+        "name": "Advanced Algorithms",
+        "code": "CS401",
         "facultyId": "f1",
-        "enrollmentCount": 30,
-        "year": 1
-      },
-      {
-        "id": "c2",
-        "name": "Data Structures",
-        "code": "CS102",
-        "facultyId": "f2",
-        "enrollmentCount": 35,
-        "year": 1
+        "enrollmentCount": 2,
+        "year": 4
       }
     ]
   },
   "reports": [
     {
       "courseId": "c1",
-      "courseName": "Introduction to Programming",
+      "courseName": "Advanced Algorithms",
       "enrollmentsOverTime": [
-        {
-          "date": "2024-01-01",
-          "count": 10
-        },
-        {
-          "date": "2024-02-01",
-          "count": 20
-        },
-        {
-          "date": "2024-03-01",
-          "count": 30
-        }
-      ],
-      "id": "6c2d"
+        { "date": "Jan", "count": 30 },
+        { "date": "Feb", "count": 32 },
+        { "date": "Mar", "count": 35 },
+        { "date": "Apr", "count": 33 },
+        { "date": "May", "count": 36 },
+        { "date": "Jun", "count": 38 }
+      ]
     },
     {
       "courseId": "c2",
-      "courseName": "Data Structures",
+      "courseName": "Database Systems",
       "enrollmentsOverTime": [
-        {
-          "date": "2024-01-01",
-          "count": 5
-        },
-        {
-          "date": "2024-02-01",
-          "count": 15
-        },
-        {
-          "date": "2024-03-01",
-          "count": 25
-        }
-      ],
-      "id": "fd74"
+        { "date": "Jan", "count": 25 },
+        { "date": "Feb", "count": 27 },
+        { "date": "Mar", "count": 29 },
+        { "date": "Apr", "count": 28 },
+        { "date": "May", "count": 30 },
+        { "date": "Jun", "count": 31 }
+      ]
+    },
+    {
+      "courseId": "c1",
+      "courseName": "Advanced Algorithms",
+      "topStudents": [
+        { "id": "s1", "name": "Alice Johnson", "email": "alice@example.com", "year": 4, "gpa": 3.95, "enrolledCourses": ["c1", "c2"] },
+        { "id": "s2", "name": "Bob Smith", "email": "bob@example.com", "year": 3, "gpa": 3.5, "enrolledCourses": ["c1", "c2"] }
+      ]
+    },
+    {
+      "courseId": "c2",
+      "courseName": "Database Systems",
+      "topStudents": [
+        { "id": "s1", "name": "Alice Johnson", "email": "alice@example.com", "year": 4, "gpa": 3.95, "enrolledCourses": ["c1", "c2"] },
+        { "id": "s2", "name": "Bob Smith", "email": "bob@example.com", "year": 3, "gpa": 3.5, "enrolledCourses": ["c1", "c2"] }
+      ]
     }
   ]
 }
