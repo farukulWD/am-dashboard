@@ -65,9 +65,8 @@ export default function DashboardLayout({
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -250, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className={`fixed z-30 top-0 left-0 w-64 h-screen p-6 shadow-lg md:hidden${
-                isDark ? "" : " border-r"
-              }`}
+              className={`fixed z-30 top-0 left-0 w-64 h-screen p-6 shadow-lg md:hidden${isDark ? "" : " border-r"
+                }`}
               style={{
                 background: "var(--color-sidebar)",
                 color: "var(--color-sidebar-foreground)",
@@ -81,9 +80,8 @@ export default function DashboardLayout({
 
         {!isMobile && (
           <aside
-            className={`hidden md:flex flex-col w-64 h-full p-6 shadow-lg fixed left-0 top-0${
-              isDark ? "" : " border-r"
-            }`}
+            className={`hidden md:flex flex-col w-64 h-full p-6 shadow-lg fixed left-0 top-0${isDark ? "" : " border-r"
+              }`}
             style={{
               background: "var(--color-sidebar)",
               color: "var(--color-sidebar-foreground)",
@@ -103,9 +101,8 @@ export default function DashboardLayout({
 
         <div className="flex-1 flex flex-col md:ml-64 h-full">
           <header
-            className={`flex items-center justify-between px-6 py-4 sticky top-0 z-10${
-              isDark ? "" : " border-b"
-            }`}
+            className={`flex items-center justify-between px-6 py-4 sticky top-0 z-10${isDark ? "" : " border-b"
+              }`}
             style={{
               background: "var(--color-navbar)",
               color: "var(--color-navbar-foreground)",
@@ -120,7 +117,7 @@ export default function DashboardLayout({
             >
               ☰
             </button>
-            <div className="flex-1 flex justify-center md:justify-end">
+            <div className="flex-1 flex justify-end">
               <button
                 className="flex items-center gap-2 px-3 py-1 rounded-lg border transition-colors"
                 style={{
