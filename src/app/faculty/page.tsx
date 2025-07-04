@@ -14,6 +14,7 @@ import api from "@/helper/axios"
 import Toast from "@/components/common/Toast"
 import AssignStudentForm from "@/components/faculty/AssignStudentForm"
 import GradeManagementTable from "@/components/faculty/GradeManagementTable"
+import { IGrade } from "@/store/types"
 
 export default function FacultyPanel() {
     const dispatch = useAppDispatch();
@@ -44,7 +45,7 @@ export default function FacultyPanel() {
             const course = courses.find(c => c.id === selectedCourse);
             if (!student || !course) return;
 
-            // Prevent duplicate assignment
+           
             const alreadyAssigned = grades.some(
                 g => g.studentId === student.id && g.courseId === course.id
             );
@@ -66,7 +67,7 @@ export default function FacultyPanel() {
             try {
                 await api.post("/grades", newGrade);
 
-                // Update student's enrolledCourses
+                
                 const newEnrolledCourses = Array.isArray(student.enrolledCourses)
                     ? [...student.enrolledCourses, {
                         id: course.id,
@@ -86,7 +87,7 @@ export default function FacultyPanel() {
                     }];
                 await api.patch(`/students/${student.id}`, { enrolledCourses: newEnrolledCourses });
 
-                // Update course's enrollmentCount
+                
                 const newEnrollmentCount = (course.enrollmentCount || 0) + 1;
                 await api.patch(`/courses/${course.id}`, { enrollmentCount: newEnrollmentCount });
 
@@ -127,7 +128,7 @@ export default function FacultyPanel() {
             return copy;
         });
 
-        // --- Update student's enrolledCourses overall grade ---
+       
         const student = students.find(s => s.id === updated.studentId);
         if (student && Array.isArray(student.enrolledCourses)) {
             const updatedCourses = student.enrolledCourses.map((course: any) =>
@@ -149,18 +150,18 @@ export default function FacultyPanel() {
         return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300"
     }
 
-    // Table columns for grades
-    const gradeColumns: import("@/components/common/Table").TableColumn<any>[] = [
+
+    const gradeColumns: import("@/components/common/Table").TableColumn<IGrade>[] = [
         {
             title: "Student",
-            dataIndex: (row: any) => {
+            dataIndex: (row: IGrade) => {
                 const student = students.find(s => s.id === row.studentId);
                 return student ? student.name : row.studentId;
             }
         },
         {
             title: "Course",
-            dataIndex: (row: any) => {
+            dataIndex: (row: IGrade) => {
                 const course = courses.find(c => c.id === row.courseId);
                 return course ? course.name : row.courseId;
             }
@@ -224,7 +225,7 @@ export default function FacultyPanel() {
         },
     ]
 
-    // Toast auto-dismiss
+    
     useEffect(() => {
         if (toast) {
             const timer = setTimeout(() => setToast(null), 2500);

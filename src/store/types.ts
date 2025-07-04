@@ -16,6 +16,7 @@ export interface ICourse {
     facultyId: string;
     enrollmentCount: number;
     year: number;
+    capacity?: number;
 }
 
 // Faculty
