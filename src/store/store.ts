@@ -5,6 +5,7 @@ import facultyReducer from "./features/facultySlice";
 import dashboardReducer from "./features/dashboardSlice";
 import reportReducer from "./features/reportSlice";
 import sideBarReducer from "./features/sideBarSlice";
+import gradesReducer from "./features/gradesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     dashboard: dashboardReducer,
     reports: reportReducer,
     sidebar: sideBarReducer,
+    grades: gradesReducer,
   },
 });
 

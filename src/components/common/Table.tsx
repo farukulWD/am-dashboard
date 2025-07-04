@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 export interface TableColumn<T = any> {
   title: string;
-  dataIndex: keyof T | ((row: T) => React.ReactNode);
+  dataIndex: keyof T | ((row: T, index: number) => React.ReactNode);
   className?: string;
 }
 
@@ -38,7 +38,7 @@ export default function Table<T = any>({ columns, data, rowProps }: TableProps<T
                 {columns.map((col, j) => {
                   let value;
                   if (typeof col.dataIndex === "function") {
-                    value = col.dataIndex(row);
+                    value = col.dataIndex(row, i);
                   } else {
                     value = row[col.dataIndex];
                   }
